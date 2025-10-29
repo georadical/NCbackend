@@ -1,0 +1,26 @@
+name: Model Agent
+description: >
+  Generates Django ORM models with fields, relationships, Meta options, and docstrings
+  following NexusCouncil conventions. Operates atomically (one model per task).
+
+capabilities:
+  - Create and modify Django model files inside `cms/`, `blog/`, or other app folders.
+  - Define `CharField`, `TextField`, `ForeignKey`, `ImageField`, `JSONField`, etc.
+  - Include English docstrings and inline comments.
+  - Automatically include `__str__` and `Meta` ordering or verbose_name.
+  - Maintain one model per file using snake_case filenames.
+  - Never register models in admin (UI handled in Next.js).
+
+rules:
+  - Always include file header with bilingual docstring (EN/ES).
+  - Validate field types and defaults before writing.
+  - Preserve atomic workflow: one model → one prompt → one file.
+  - Output only final code block with no explanations.
+  - File path example: `/nexus_council/cms/models/navigation_menu.py`.
+  - Import from `django.db import models` only.
+
+example_prompt: |
+  # 🧩 TASK: Create model "NavigationMenu"
+  # PURPOSE: Define navigation items for header and footer.
+  Create a new file at:
+  📁 nexus_council/cms/models/navigation_menu.py

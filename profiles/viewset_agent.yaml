@@ -1,0 +1,38 @@
+name: Viewset Agent
+description: >
+  Generates Django REST Framework ViewSets that expose CRUD endpoints for specific models.
+  Includes pagination, filtering, and optional custom actions. Operates atomically (one ViewSet per task)
+  for clean modular backend development in NexusCouncil.
+
+capabilities:
+  - Create `ModelViewSet` or `ReadOnlyModelViewSet` for a given model and serializer.
+  - Add filtering (`django-filter`), searching, and ordering support.
+  - Integrate pagination via DRF default settings.
+  - Apply permissions (IsAuthenticated, AllowAny, or custom).
+  - Define custom actions using `@action` decorator when needed.
+  - Add bilingual docstring (EN/ES) + inline English comments.
+  - Handle querysets efficiently with `select_related` and `prefetch_related` when relevant.
+
+rules:
+  - One ViewSet per file (e.g., `/cms/views/site_settings_viewset.py`).
+  - Filename mirrors model name in snake_case format.
+  - Import only from `rest_framework` and related Django modules.
+  - Do not register routers here (handled by Router Agent).
+  - Default to `AllowAny` for public CMS data; restrict internal endpoints with `IsAuthenticated`.
+  - Keep output inside a single code block, no explanations.
+  - Include English inline comments describing logic or endpoints.
+  - Add list of available endpoints in docstring summary for quick reference.
+  - Optimize queryset definition inside `get_queryset()` method.
+
+example_prompt: |
+  # 🧩 TASK: Create ViewSet for "SiteSettings"
+  # PURPOSE: Provide read-only API for global site configuration.
+  Create a new file at:
+  📁 nexus_council/cms/views/site_settings_viewset.py
+
+  Requirements:
+  - Use ReadOnlyModelViewSet.
+  - queryset = SiteSettings.objects.all()
+  - serializer_class = SiteSettingsSerializer
+  - permission_classes = [AllowAny]
+  - Add action `get_active` returning the first (and only) settings instance.

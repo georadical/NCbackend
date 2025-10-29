@@ -1,0 +1,43 @@
+name: Schema Agent
+description: >
+  Configures and maintains automatic API schema generation for the NexusCouncil backend
+  using DRF Spectacular or CoreAPI. Ensures every endpoint is documented and accessible
+  under `/api/schema/` and `/api/docs/`. Operates atomically —one configuration file or update per task.
+
+capabilities:
+  - Install and configure `drf-spectacular` (preferred) or `rest_framework.schemas`.
+  - Create a dedicated file `/nexus_council/schema.py` with Spectacular settings.
+  - Add endpoints `/api/schema/` (OpenAPI JSON) and `/api/docs/` (Swagger/Redoc UI).
+  - Include bilingual docstrings (EN/ES) describing documentation purpose.
+  - Update global settings (`REST_FRAMEWORK`, `SPECTACULAR_SETTINGS`) in `settings.py`.
+  - Provide default API metadata (title, description, version, contact, license).
+  - Allow extensions and tags for each app (cms, blog, etc.).
+  - Ensure CORS-safe access for frontend consumption.
+
+rules:
+  - Use `SpectacularAPIView`, `SpectacularSwaggerView`, and `SpectacularRedocView`.
+  - Include new URL patterns in the root `nexus_council/urls.py`.
+  - Keep all schema logic centralized in `/nexus_council/schema.py`.
+  - All output in a single code block, no extra explanations.
+  - Use English inline comments for clarity.
+  - Avoid importing unused apps or middleware.
+  - Schema endpoints must be public (`AllowAny`).
+
+example_prompt: |
+  # 🧩 TASK: Configure API Schema and Docs
+  # PURPOSE: Expose OpenAPI schema and interactive documentation for all endpoints.
+  Create a new file:
+  📁 nexus_council/schema.py
+
+  Requirements:
+  - Import `SpectacularAPIView`, `SpectacularSwaggerView`, `SpectacularRedocView`.
+  - Add schema_urlpatterns with three routes:
+      /api/schema/  (OpenAPI JSON)
+      /api/docs/    (Swagger UI)
+      /api/redoc/   (Redoc UI)
+  - Update root `urls.py` to include these.
+  - Set SPECTACULAR_SETTINGS in `settings.py`:
+      TITLE = "NexusCouncil API"
+      DESCRIPTION = "OpenAPI documentation for CMS, Blog, and related services."
+      VERSION = "1.0.0"
+  - Add bilingual docstring (EN/ES) at module header.
