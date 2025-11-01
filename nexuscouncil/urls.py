@@ -1,11 +1,9 @@
-"""Project-level URL routing for NexusCouncil."""
-
 from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path("cms/", include("cms.urls")),
+    path("cms/", include("cms.urls")),  # ✅ Integrates CMS routes globally
 ]
 
 if "django.contrib.admin" in settings.INSTALLED_APPS:
