@@ -6,7 +6,7 @@ ES: ViewSet de solo lectura que expone las etiquetas que clasifican los casos de
 """
 
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from cms.models.use_case_tag import UseCaseTag
 from cms.serializers.use_case_tag import UseCaseTagSerializer
@@ -17,4 +17,4 @@ class UseCaseTagViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = UseCaseTag.objects.filter(is_active=True).order_by("order", "name")
     serializer_class = UseCaseTagSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticatedOrReadOnly]

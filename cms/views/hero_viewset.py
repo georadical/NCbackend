@@ -7,7 +7,7 @@ ES: ViewSet de solo lectura que expone la sección hero (título, subtítulo, CT
 
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 
 from cms.models.hero import Hero
@@ -19,7 +19,7 @@ class HeroViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = Hero.objects.filter(is_active=True).order_by("-created_at")
     serializer_class = HeroSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     @action(detail=False, methods=["get"], url_path="active")
     def get_active(self, request):

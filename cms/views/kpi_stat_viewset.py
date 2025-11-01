@@ -6,7 +6,7 @@ ES: ViewSet de solo lectura que expone los indicadores clave de rendimiento (KPI
 """
 
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from cms.models.kpi_stat import KPIStat
 from cms.serializers.kpi_stat import KPIStatSerializer
@@ -17,4 +17,4 @@ class KPIStatViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = KPIStat.objects.filter(is_active=True).order_by("order")
     serializer_class = KPIStatSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticatedOrReadOnly]

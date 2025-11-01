@@ -1,0 +1,452 @@
+[
+  {
+    "model": "cms.sitesettings",
+    "pk": 1,
+    "fields": {
+      "site_name": "NexusCouncil",
+      "logo": "branding/logo.svg",
+      "theme_primary": "#00e676",
+      "theme_bg_light": "#f4f7fb",
+      "theme_bg_dark": "#0a1a2c",
+      "twitter_url": "https://twitter.com/nexuscouncil",
+      "linkedin_url": "https://www.linkedin.com/company/nexuscouncil",
+      "youtube_url": "https://www.youtube.com/@nexuscouncil",
+      "meta_title": "NexusCouncil — GIS-Powered Console for Smarter Councils",
+      "meta_description": "NexusCouncil centralizes geospatial intelligence, streamlines municipal workflows, and empowers data-driven decisions.",
+      "og_image": "seo/og-default.jpg"
+    }
+  },
+  {
+    "model": "cms.navigationmenu",
+    "pk": 1,
+    "fields": {
+      "name": "Primary Navigation",
+      "placement": "header"
+    }
+  },
+  {
+    "model": "cms.navigationmenu",
+    "pk": 2,
+    "fields": {
+      "name": "Footer Navigation",
+      "placement": "footer"
+    }
+  },
+  {
+    "model": "cms.navitem",
+    "pk": 1,
+    "fields": {
+      "menu": 1,
+      "label": "Solutions",
+      "href": "#solutions",
+      "order": 1
+    }
+  },
+  {
+    "model": "cms.navitem",
+    "pk": 2,
+    "fields": {
+      "menu": 1,
+      "label": "Use Cases",
+      "href": "#use-cases",
+      "order": 2
+    }
+  },
+  {
+    "model": "cms.navitem",
+    "pk": 3,
+    "fields": {
+      "menu": 1,
+      "label": "Pricing",
+      "href": "#pricing",
+      "order": 3
+    }
+  },
+  {
+    "model": "cms.navitem",
+    "pk": 4,
+    "fields": {
+      "menu": 1,
+      "label": "FAQ",
+      "href": "#faq",
+      "order": 4
+    }
+  },
+  {
+    "model": "cms.navitem",
+    "pk": 5,
+    "fields": {
+      "menu": 2,
+      "label": "Privacy Policy",
+      "href": "#privacy",
+      "order": 1
+    }
+  },
+  {
+    "model": "cms.navitem",
+    "pk": 6,
+    "fields": {
+      "menu": 2,
+      "label": "Terms of Service",
+      "href": "#terms",
+      "order": 2
+    }
+  },
+  {
+    "model": "cms.hero",
+    "pk": 1,
+    "fields": {
+      "title": "One GIS-Powered Console for Smarter Councils.",
+      "subtitle": "Centralize geospatial data, streamline interdepartmental workflows, and deliver better outcomes for your community.",
+      "cta_primary_label": "Book a Demo",
+      "cta_primary_href": "#demo",
+      "cta_secondary_label": "See Live Sandbox",
+      "cta_secondary_href": "#sandbox",
+      "bg_type": "image",
+      "bg_media": "hero/hero-bg.jpg",
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.trustlogo",
+    "pk": 1,
+    "fields": {
+      "name": "City of Metropolis",
+      "image": "trust_logos/city-metropolis.svg",
+      "link": "https://metropolis.gov",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.trustlogo",
+    "pk": 2,
+    "fields": {
+      "name": "Harbor City Council",
+      "image": "trust_logos/harbor-city.svg",
+      "link": "https://harborcity.gov",
+      "order": 2,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.kpistat",
+    "pk": 1,
+    "fields": {
+      "label": "Faster Permit Approvals",
+      "value": "30%",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.kpistat",
+    "pk": 2,
+    "fields": {
+      "label": "Operational Cost Savings",
+      "value": "22%",
+      "order": 2,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.solution",
+    "pk": 1,
+    "fields": {
+      "icon": "map",
+      "title": "Urban Planning & Zoning",
+      "description": "Visualize zoning regulations, track development projects, and analyze land use patterns in real time.",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.solution",
+    "pk": 2,
+    "fields": {
+      "icon": "engineering",
+      "title": "Infrastructure Management",
+      "description": "Monitor assets, schedule maintenance, and forecast capital needs across departments.",
+      "order": 2,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.usecasetag",
+    "pk": 1,
+    "fields": {
+      "name": "Permit Management",
+      "slug": "permit-management",
+      "description": "Automate intake, review, and issuance workflows.",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.usecasetag",
+    "pk": 2,
+    "fields": {
+      "name": "Code Enforcement",
+      "slug": "code-enforcement",
+      "description": "Track violations, inspections, and compliance activities.",
+      "order": 2,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.usecasefeature",
+    "pk": 1,
+    "fields": {
+      "title": "Streamline Permit Approvals",
+      "description": "Digitize the complete permit lifecycle with automated reminders, reviewers, and GIS context.",
+      "image": "use_cases/permit-approvals.png",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z",
+      "tags": [1]
+    }
+  },
+  {
+    "model": "cms.usecasefeature",
+    "pk": 2,
+    "fields": {
+      "title": "Code Compliance Automation",
+      "description": "Prioritize inspections, dispatch field crews, and document resolutions in one platform.",
+      "image": "use_cases/code-compliance.png",
+      "order": 2,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z",
+      "tags": [2]
+    }
+  },
+  {
+    "model": "cms.casestudy",
+    "pk": 1,
+    "fields": {
+      "image": "case_studies/metropolis-traffic.jpg",
+      "category": "Traffic Flow",
+      "city": "Metropolis",
+      "title": "20% Congestion Reduction",
+      "summary": "Optimized traffic signals and rerouted public transport using real-time analytics and historical trends.",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.glimpseimage",
+    "pk": 1,
+    "fields": {
+      "image": "glimpse/dashboard-overview.png",
+      "title": "Operational Overview",
+      "caption": "Monitor KPIs, permits, and field activity in a unified dashboard.",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.integration",
+    "pk": 1,
+    "fields": {
+      "name": "Esri ArcGIS",
+      "logo": "integrations/esri.svg",
+      "website_url": "https://www.esri.com",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.pricingplan",
+    "pk": 1,
+    "fields": {
+      "name": "essentials",
+      "description": "For small teams getting started with connected GIS operations.",
+      "price": "$499/mo",
+      "highlight": false,
+      "order": 1,
+      "features": [
+        "Core GIS console",
+        "Up to 15 seats",
+        "Email support"
+      ],
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.pricingplan",
+    "pk": 2,
+    "fields": {
+      "name": "professional",
+      "description": "For growing cities and districts that need deeper analytics.",
+      "price": "$999/mo",
+      "highlight": true,
+      "order": 2,
+      "features": [
+        "Everything in Essentials",
+        "Up to 50 seats",
+        "Advanced analytics",
+        "Priority support"
+      ],
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.pricingfeature",
+    "pk": 1,
+    "fields": {
+      "plan": 2,
+      "description": "Dedicated customer success manager",
+      "order": 1,
+      "included": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.testimonial",
+    "pk": 1,
+    "fields": {
+      "quote": "NexusCouncil transformed how we collaborate across planning, public works, and emergency services. Review times are down by half.",
+      "author_name": "Sarah Chen",
+      "author_title": "City Planner",
+      "organization": "Metropolis Planning Dept.",
+      "author_photo": "testimonials/sarah-chen.jpg",
+      "verified": true,
+      "stat_1_label": "Faster Reviews",
+      "stat_1_value": "50%",
+      "stat_2_label": "Productivity Boost",
+      "stat_2_value": "20%",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.faqitem",
+    "pk": 1,
+    "fields": {
+      "question": "Is NexusCouncil secure?",
+      "answer": "Yes. We provide encryption at rest and in transit, strict role-based access controls, and continuous monitoring.",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.faqitem",
+    "pk": 2,
+    "fields": {
+      "question": "Do you integrate with existing GIS tools?",
+      "answer": "Absolutely. NexusCouncil integrates with Esri ArcGIS, QGIS, and other industry-standard platforms.",
+      "order": 2,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.finalcta",
+    "pk": 1,
+    "fields": {
+      "heading": "Ready to Build a Smarter Council?",
+      "subheading": "See how NexusCouncil can transform operations—from permitting to public safety. Get a personalized demo today.",
+      "primary_button_text": "Book Your Free Demo",
+      "primary_button_url": "#demo",
+      "secondary_button_text": "Contact Sales",
+      "secondary_button_url": "mailto:sales@nexuscouncil.com",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.footerlinkgroup",
+    "pk": 1,
+    "fields": {
+      "title": "Product",
+      "links": [
+        {"label": "Solutions", "url": "#solutions"},
+        {"label": "Integrations", "url": "#integrations"},
+        {"label": "Pricing", "url": "#pricing"}
+      ],
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.footerlinkgroup",
+    "pk": 2,
+    "fields": {
+      "title": "Company",
+      "links": [
+        {"label": "About", "url": "#about"},
+        {"label": "Careers", "url": "#careers"},
+        {"label": "Press", "url": "#press"}
+      ],
+      "order": 2,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.footerlink",
+    "pk": 1,
+    "fields": {
+      "group": 1,
+      "label": "Platform Tour",
+      "url": "https://nexuscouncil.com/platform",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "cms.footerlink",
+    "pk": 2,
+    "fields": {
+      "group": 2,
+      "label": "Contact",
+      "url": "https://nexuscouncil.com/contact",
+      "order": 1,
+      "is_active": true,
+      "created_at": "2025-01-01T00:00:00Z",
+      "updated_at": "2025-01-01T00:00:00Z"
+    }
+  }
+]

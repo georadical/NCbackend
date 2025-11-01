@@ -6,7 +6,7 @@ ES: ViewSet de solo lectura que expone las funcionalidades o casos de uso mostra
 """
 
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from cms.models.use_case_feature import UseCaseFeature
 from cms.serializers.use_case_feature import UseCaseFeatureSerializer
@@ -21,4 +21,4 @@ class UseCaseFeatureViewSet(viewsets.ReadOnlyModelViewSet):
         .order_by("order")
     )
     serializer_class = UseCaseFeatureSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticatedOrReadOnly]

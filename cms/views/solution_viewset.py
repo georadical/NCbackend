@@ -6,7 +6,7 @@ ES: ViewSet de solo lectura que expone las soluciones de NexusCouncil para la se
 """
 
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from cms.models.solution import Solution
 from cms.serializers.solution import SolutionSerializer
@@ -17,4 +17,4 @@ class SolutionViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = Solution.objects.filter(is_active=True).order_by("order")
     serializer_class = SolutionSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticatedOrReadOnly]

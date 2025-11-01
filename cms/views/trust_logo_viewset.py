@@ -6,7 +6,7 @@ ES: ViewSet de solo lectura que expone los logotipos activos de socios o consejo
 """
 
 from rest_framework import viewsets
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from cms.models.trust_logo import TrustLogo
 from cms.serializers.trust_logo import TrustLogoSerializer
@@ -17,4 +17,4 @@ class TrustLogoViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = TrustLogo.objects.filter(is_active=True).order_by("order")
     serializer_class = TrustLogoSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticatedOrReadOnly]

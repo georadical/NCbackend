@@ -7,7 +7,7 @@ ES: ViewSet de solo lectura que expone los menús de navegación de encabezado y
 
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 
 from cms.models.navigation_menu import NavigationMenu
@@ -19,7 +19,7 @@ class NavigationMenuViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = NavigationMenu.objects.prefetch_related("items").all()
     serializer_class = NavigationMenuSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     @action(detail=False, methods=["get"], url_path="header")
     def get_header(self, request):

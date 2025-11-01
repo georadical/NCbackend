@@ -5,9 +5,9 @@ EN: Read-only ViewSet exposing the global SiteSettings instance for branding, SE
 ES: ViewSet de solo lectura que expone la instancia global de SiteSettings (marca, SEO y redes sociales).
 """
 
-from rest_framework import viewsets, status
+from rest_framework import status, viewsets
 from rest_framework.decorators import action
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 
 from cms.models.sitesettings import SiteSettings
@@ -19,7 +19,7 @@ class SiteSettingsViewSet(viewsets.ReadOnlyModelViewSet):
 
     queryset = SiteSettings.objects.all()
     serializer_class = SiteSettingsSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
     @action(detail=False, methods=["get"], url_path="active")
     def get_active(self, request):
