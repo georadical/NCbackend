@@ -41,8 +41,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'cms',
+    "drf_spectacular",
     'blog',
 ]
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "NexusCouncil API",
+    "DESCRIPTION": "OpenAPI schema for NexusCouncil CMS endpoints.",
+    "VERSION": "1.0.0",
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -137,6 +144,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 # DRF configuration
 REST_FRAMEWORK = {
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),

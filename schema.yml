@@ -1,0 +1,1586 @@
+openapi: 3.0.3
+info:
+  title: NexusCouncil API
+  version: 1.0.0
+  description: OpenAPI schema for NexusCouncil CMS endpoints.
+paths:
+  /api/token/:
+    post:
+      operationId: api_token_create
+      description: |-
+        Issue JWT tokens with an inspectable schema for drf-spectacular.
+
+        Emite tokens JWT con un esquema detectable por drf-spectacular.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenObtainPair'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenObtainPair'
+          description: ''
+  /api/token/refresh/:
+    post:
+      operationId: api_token_refresh_create
+      description: |-
+        Refresh JWT tokens with an inspectable schema for drf-spectacular.
+
+        Renueva tokens JWT con un esquema detectable por drf-spectacular.
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+  /cms/case-studies/:
+    get:
+      operationId: cms_case_studies_list
+      description: Read-only API for CaseStudy model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CaseStudy'
+          description: ''
+  /cms/case-studies/{id}/:
+    get:
+      operationId: cms_case_studies_retrieve
+      description: Read-only API for CaseStudy model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Case Study.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CaseStudy'
+          description: ''
+  /cms/faq-items/:
+    get:
+      operationId: cms_faq_items_list
+      description: Read-only API for FAQItem model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FAQItem'
+          description: ''
+  /cms/faq-items/{id}/:
+    get:
+      operationId: cms_faq_items_retrieve
+      description: Read-only API for FAQItem model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this FAQ Item.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FAQItem'
+          description: ''
+  /cms/final-cta/:
+    get:
+      operationId: cms_final_cta_list
+      description: Read-only API for FinalCTA model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FinalCTA'
+          description: ''
+  /cms/final-cta/{id}/:
+    get:
+      operationId: cms_final_cta_retrieve
+      description: Read-only API for FinalCTA model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Final CTA.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FinalCTA'
+          description: ''
+  /cms/footer-link-groups/:
+    get:
+      operationId: cms_footer_link_groups_list
+      description: Read-only API for FooterLinkGroup model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FooterLinkGroup'
+          description: ''
+  /cms/footer-link-groups/{id}/:
+    get:
+      operationId: cms_footer_link_groups_retrieve
+      description: Read-only API for FooterLinkGroup model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Footer Link Group.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FooterLinkGroup'
+          description: ''
+  /cms/footer-links/:
+    get:
+      operationId: cms_footer_links_list
+      description: Read-only API for FooterLink model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FooterLink'
+          description: ''
+  /cms/footer-links/{id}/:
+    get:
+      operationId: cms_footer_links_retrieve
+      description: Read-only API for FooterLink model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Footer Link.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FooterLink'
+          description: ''
+  /cms/glimpse-images/:
+    get:
+      operationId: cms_glimpse_images_list
+      description: Read-only API for GlimpseImage model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GlimpseImage'
+          description: ''
+  /cms/glimpse-images/{id}/:
+    get:
+      operationId: cms_glimpse_images_retrieve
+      description: Read-only API for GlimpseImage model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Glimpse Image.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlimpseImage'
+          description: ''
+  /cms/hero/:
+    get:
+      operationId: cms_hero_list
+      description: Read-only API for the Hero section.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Hero'
+          description: ''
+  /cms/hero/{id}/:
+    get:
+      operationId: cms_hero_retrieve
+      description: Read-only API for the Hero section.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Hero Section.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hero'
+          description: ''
+  /cms/hero/active/:
+    get:
+      operationId: cms_hero_active_retrieve
+      description: Return the currently active Hero section.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hero'
+          description: ''
+  /cms/integrations/:
+    get:
+      operationId: cms_integrations_list
+      description: Read-only API for Integration model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Integration'
+          description: ''
+  /cms/integrations/{id}/:
+    get:
+      operationId: cms_integrations_retrieve
+      description: Read-only API for Integration model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Integration.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+          description: ''
+  /cms/kpi-stats/:
+    get:
+      operationId: cms_kpi_stats_list
+      description: Read-only API for KPIStat model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/KPIStat'
+          description: ''
+  /cms/kpi-stats/{id}/:
+    get:
+      operationId: cms_kpi_stats_retrieve
+      description: Read-only API for KPIStat model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this KPI Statistic.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/KPIStat'
+          description: ''
+  /cms/navigation-menu/:
+    get:
+      operationId: cms_navigation_menu_list
+      description: Read-only ViewSet for NavigationMenu with header/footer filtering.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NavigationMenu'
+          description: ''
+  /cms/navigation-menu/{id}/:
+    get:
+      operationId: cms_navigation_menu_retrieve
+      description: Read-only ViewSet for NavigationMenu with header/footer filtering.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this navigation menu.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NavigationMenu'
+          description: ''
+  /cms/navigation-menu/footer/:
+    get:
+      operationId: cms_navigation_menu_footer_retrieve
+      description: Return footer navigation menu.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NavigationMenu'
+          description: ''
+  /cms/navigation-menu/header/:
+    get:
+      operationId: cms_navigation_menu_header_retrieve
+      description: Return header navigation menu.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NavigationMenu'
+          description: ''
+  /cms/pricing-features/:
+    get:
+      operationId: cms_pricing_features_list
+      description: Read-only API for PricingFeature model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PricingFeature'
+          description: ''
+  /cms/pricing-features/{id}/:
+    get:
+      operationId: cms_pricing_features_retrieve
+      description: Read-only API for PricingFeature model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Pricing Feature.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PricingFeature'
+          description: ''
+  /cms/pricing-plans/:
+    get:
+      operationId: cms_pricing_plans_list
+      description: Read-only API for PricingPlan model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PricingPlan'
+          description: ''
+  /cms/pricing-plans/{id}/:
+    get:
+      operationId: cms_pricing_plans_retrieve
+      description: Read-only API for PricingPlan model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Pricing Plan.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PricingPlan'
+          description: ''
+  /cms/site-settings/:
+    get:
+      operationId: cms_site_settings_list
+      description: Read-only API for SiteSettings (only one instance expected).
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SiteSettings'
+          description: ''
+  /cms/site-settings/{id}/:
+    get:
+      operationId: cms_site_settings_retrieve
+      description: Read-only API for SiteSettings (only one instance expected).
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Site Settings.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SiteSettings'
+          description: ''
+  /cms/site-settings/active/:
+    get:
+      operationId: cms_site_settings_active_retrieve
+      description: Return the first (active) SiteSettings instance.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SiteSettings'
+          description: ''
+  /cms/solutions/:
+    get:
+      operationId: cms_solutions_list
+      description: Read-only API for Solution model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Solution'
+          description: ''
+  /cms/solutions/{id}/:
+    get:
+      operationId: cms_solutions_retrieve
+      description: Read-only API for Solution model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Solution.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Solution'
+          description: ''
+  /cms/testimonials/:
+    get:
+      operationId: cms_testimonials_list
+      description: Read-only API for Testimonial model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Testimonial'
+          description: ''
+  /cms/testimonials/{id}/:
+    get:
+      operationId: cms_testimonials_retrieve
+      description: Read-only API for Testimonial model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Testimonial.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Testimonial'
+          description: ''
+  /cms/trust-logos/:
+    get:
+      operationId: cms_trust_logos_list
+      description: Read-only API for TrustLogo model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TrustLogo'
+          description: ''
+  /cms/trust-logos/{id}/:
+    get:
+      operationId: cms_trust_logos_retrieve
+      description: Read-only API for TrustLogo model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Trust Logo.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrustLogo'
+          description: ''
+  /cms/use-case-features/:
+    get:
+      operationId: cms_use_case_features_list
+      description: Read-only API for UseCaseFeature model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UseCaseFeature'
+          description: ''
+  /cms/use-case-features/{id}/:
+    get:
+      operationId: cms_use_case_features_retrieve
+      description: Read-only API for UseCaseFeature model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Use Case Feature.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UseCaseFeature'
+          description: ''
+  /cms/use-case-tags/:
+    get:
+      operationId: cms_use_case_tags_list
+      description: Read-only API for UseCaseTag model.
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UseCaseTag'
+          description: ''
+  /cms/use-case-tags/{id}/:
+    get:
+      operationId: cms_use_case_tags_retrieve
+      description: Read-only API for UseCaseTag model.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this Use Case Tag.
+        required: true
+      tags:
+      - cms
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UseCaseTag'
+          description: ''
+components:
+  schemas:
+    BgTypeEnum:
+      enum:
+      - pattern
+      - image
+      - solid
+      type: string
+      description: |-
+        * `pattern` - Subtle Pattern
+        * `image` - Background Image
+        * `solid` - Solid Color
+    CaseStudy:
+      type: object
+      description: Serializer for the CaseStudy model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        image_url:
+          type: string
+          readOnly: true
+        category:
+          type: string
+          description: Category label (e.g., 'Traffic Flow', 'Public Safety').
+          maxLength: 100
+        city:
+          type: string
+          description: City or organization name (e.g., 'Metropolis').
+          maxLength: 100
+        title:
+          type: string
+          description: Title summarizing the key outcome (e.g., '20% Congestion Reduction').
+          maxLength: 200
+        summary:
+          type: string
+          description: Short paragraph describing the results and how they were achieved.
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order in the grid.
+        is_active:
+          type: boolean
+          description: Controls visibility on the landing page.
+      required:
+      - category
+      - city
+      - id
+      - image_url
+      - summary
+      - title
+    FAQItem:
+      type: object
+      description: Serializer for the FAQItem model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        question:
+          type: string
+          description: The FAQ question text.
+          maxLength: 255
+        answer:
+          type: string
+          description: The corresponding answer to the FAQ question.
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order in the FAQ section.
+        is_active:
+          type: boolean
+          description: Controls visibility on the landing page.
+      required:
+      - answer
+      - id
+      - question
+    FinalCTA:
+      type: object
+      description: Serializer for the FinalCTA model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        heading:
+          type: string
+          description: Main headline for the final CTA (e.g., 'Ready to Build a Smarter
+            Council?').
+          maxLength: 200
+        subheading:
+          type: string
+          description: Supporting text that elaborates the CTA purpose.
+        primary_button_text:
+          type: string
+          description: Text for the main button.
+          maxLength: 100
+        primary_button_url:
+          type: string
+          format: uri
+          description: URL the primary button links to.
+          maxLength: 200
+        secondary_button_text:
+          type: string
+          description: Optional text for a secondary button.
+          maxLength: 100
+        secondary_button_url:
+          type: string
+          format: uri
+          description: URL the secondary button links to.
+          maxLength: 200
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order if multiple CTAs exist.
+        is_active:
+          type: boolean
+          description: Controls whether this CTA section is visible.
+      required:
+      - heading
+      - id
+      - subheading
+    FooterLink:
+      type: object
+      description: Serializer for the FooterLink model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        group:
+          type: integer
+          description: Parent link group (e.g., Product, Company, Legal).
+        label:
+          type: string
+          description: Link label displayed in the footer (e.g., 'Privacy Policy').
+          maxLength: 100
+        url:
+          type: string
+          format: uri
+          description: URL the footer link points to.
+          maxLength: 200
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Order within the footer group.
+        is_active:
+          type: boolean
+          description: Controls visibility of this link.
+      required:
+      - group
+      - id
+      - label
+      - url
+    FooterLinkGroup:
+      type: object
+      description: Serializer for the FooterLinkGroup model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          description: Title of the footer link group (e.g., 'Product').
+          maxLength: 100
+        links:
+          description: List of link objects, each with 'label' and 'url'.
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order for footer link groups.
+        is_active:
+          type: boolean
+          description: Controls visibility in the footer.
+      required:
+      - id
+      - title
+    GlimpseImage:
+      type: object
+      description: Serializer for the GlimpseImage model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        image_url:
+          type: string
+          readOnly: true
+        title:
+          type: string
+          description: Optional short title or label for the image.
+          maxLength: 150
+        caption:
+          type: string
+          description: Optional short caption describing the image.
+          maxLength: 250
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order in the frontend grid.
+        is_active:
+          type: boolean
+          description: Controls visibility on the landing page.
+      required:
+      - id
+      - image_url
+    Hero:
+      type: object
+      description: Serializer for the Hero model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 200
+        subtitle:
+          type: string
+          description: Optional supporting text below the title.
+        cta_primary_label:
+          type: string
+          maxLength: 60
+        cta_primary_href:
+          type: string
+          maxLength: 255
+        cta_secondary_label:
+          type: string
+          maxLength: 60
+        cta_secondary_href:
+          type: string
+          maxLength: 255
+        bg_type:
+          $ref: '#/components/schemas/BgTypeEnum'
+        bg_media_url:
+          type: string
+          readOnly: true
+        is_active:
+          type: boolean
+          description: Only one hero should be active at a time.
+      required:
+      - bg_media_url
+      - id
+    Integration:
+      type: object
+      description: Serializer for the Integration model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          description: Integration name (e.g., 'Esri', 'Salesforce').
+          maxLength: 100
+        logo_url:
+          type: string
+          readOnly: true
+        website_url:
+          type: string
+          format: uri
+          description: Optional URL to the partner or product page.
+          maxLength: 200
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order in the integrations grid.
+        is_active:
+          type: boolean
+          description: Controls whether this integration is visible.
+      required:
+      - id
+      - logo_url
+      - name
+    KPIStat:
+      type: object
+      description: Serializer for the KPIStat model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        label:
+          type: string
+          description: Short description of the KPI (e.g. 'Faster Permit Approvals').
+          maxLength: 100
+        value:
+          type: string
+          description: Numeric or symbolic KPI value (e.g. '30%', '15M+', '4.9/5').
+          maxLength: 50
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order in the KPI grid.
+        is_active:
+          type: boolean
+          description: Controls whether this KPI is visible.
+      required:
+      - id
+      - label
+      - value
+    NameEnum:
+      enum:
+      - essentials
+      - professional
+      - enterprise
+      type: string
+      description: |-
+        * `essentials` - Essentials
+        * `professional` - Professional
+        * `enterprise` - Enterprise
+    NavItem:
+      type: object
+      description: Serializer for individual navigation items.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        label:
+          type: string
+          maxLength: 100
+        href:
+          type: string
+          description: 'URL or hash link (e.g. #solutions)'
+          maxLength: 255
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+      required:
+      - href
+      - id
+      - label
+    NavigationMenu:
+      type: object
+      description: Serializer for NavigationMenu including its related items.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 100
+        placement:
+          $ref: '#/components/schemas/PlacementEnum'
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/NavItem'
+          readOnly: true
+      required:
+      - id
+      - items
+      - name
+    PlacementEnum:
+      enum:
+      - header
+      - footer
+      type: string
+      description: |-
+        * `header` - Header
+        * `footer` - Footer
+    PricingFeature:
+      type: object
+      description: Serializer for the PricingFeature model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        plan:
+          type: integer
+          description: The pricing plan this feature belongs to.
+        description:
+          type: string
+          description: Short description of the feature.
+          maxLength: 255
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order within the plan.
+        included:
+          type: boolean
+          description: Indicates if the feature is included or optional.
+      required:
+      - description
+      - id
+      - plan
+    PricingPlan:
+      type: object
+      description: Serializer for the PricingPlan model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          allOf:
+          - $ref: '#/components/schemas/NameEnum'
+          description: |-
+            Plan name or tier (e.g., Essentials, Professional, Enterprise).
+
+            * `essentials` - Essentials
+            * `professional` - Professional
+            * `enterprise` - Enterprise
+        description:
+          type: string
+          description: Short description of the plan’s target audience.
+          maxLength: 255
+        price:
+          type: string
+          description: Displayed price (e.g., '$499/mo' or 'Contact Us').
+          maxLength: 50
+        highlight:
+          type: boolean
+          description: Marks this plan as 'Most Popular'.
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order for frontend rendering.
+        features:
+          description: List of included features.
+        is_active:
+          type: boolean
+          description: Controls whether the plan is visible on the pricing section.
+      required:
+      - description
+      - id
+      - name
+      - price
+    SiteSettings:
+      type: object
+      description: Serializer for the SiteSettings model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        site_name:
+          type: string
+          maxLength: 120
+        theme_primary:
+          type: string
+          maxLength: 7
+        theme_bg_light:
+          type: string
+          maxLength: 7
+        theme_bg_dark:
+          type: string
+          maxLength: 7
+        twitter_url:
+          type: string
+          format: uri
+          maxLength: 200
+        linkedin_url:
+          type: string
+          format: uri
+          maxLength: 200
+        youtube_url:
+          type: string
+          format: uri
+          maxLength: 200
+        meta_title:
+          type: string
+          maxLength: 60
+        meta_description:
+          type: string
+          maxLength: 160
+        logo_url:
+          type: string
+          readOnly: true
+        og_image_url:
+          type: string
+          readOnly: true
+      required:
+      - id
+      - logo_url
+      - og_image_url
+    Solution:
+      type: object
+      description: Serializer for the Solution model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        icon:
+          type: string
+          description: Material icon name (e.g., 'map', 'engineering', 'emergency_home').
+          maxLength: 60
+        title:
+          type: string
+          description: Solution title.
+          maxLength: 150
+        description:
+          type: string
+          description: Short description of what this solution offers.
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order on the frontend.
+        is_active:
+          type: boolean
+          description: Controls visibility on the site.
+      required:
+      - description
+      - icon
+      - id
+      - title
+    Testimonial:
+      type: object
+      description: Serializer for the Testimonial model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        quote:
+          type: string
+          description: Quoted testimonial text.
+        author_name:
+          type: string
+          description: Full name of the testimonial author.
+          maxLength: 100
+        author_title:
+          type: string
+          description: Author’s title or role (e.g., 'City Planner').
+          maxLength: 150
+        organization:
+          type: string
+          description: Name of the organization or department.
+          maxLength: 150
+        author_photo_url:
+          type: string
+          readOnly: true
+        verified:
+          type: boolean
+          description: Mark if testimonial is verified.
+        stat_1_label:
+          type: string
+          description: Optional label for the first impact metric (e.g., 'Faster Reviews').
+          maxLength: 50
+        stat_1_value:
+          type: string
+          description: Numeric/statistical value for the first metric (e.g., '50%').
+          maxLength: 50
+        stat_2_label:
+          type: string
+          description: Optional label for the second impact metric (e.g., 'Productivity
+            Boost').
+          maxLength: 50
+        stat_2_value:
+          type: string
+          description: Numeric/statistical value for the second metric (e.g., '20%').
+          maxLength: 50
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order in the frontend.
+        is_active:
+          type: boolean
+          description: Controls visibility on the landing page.
+      required:
+      - author_name
+      - author_photo_url
+      - author_title
+      - id
+      - organization
+      - quote
+    TokenObtainPair:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          readOnly: true
+      required:
+      - access
+      - password
+      - refresh
+      - username
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          writeOnly: true
+      required:
+      - access
+      - refresh
+    TrustLogo:
+      type: object
+      description: Serializer for the TrustLogo model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          description: Partner or organization name.
+          maxLength: 100
+        image_url:
+          type: string
+          readOnly: true
+        link:
+          type: string
+          format: uri
+          nullable: true
+          description: Optional link to the partner’s website.
+          maxLength: 200
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order on the page.
+        is_active:
+          type: boolean
+          description: Controls whether the logo appears on the site.
+      required:
+      - id
+      - image_url
+      - name
+    UseCaseFeature:
+      type: object
+      description: Serializer for the UseCaseFeature model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          description: Feature title (e.g., 'Streamline Permit Approvals').
+          maxLength: 150
+        description:
+          type: string
+          description: Detailed explanation of how this feature solves a real-world
+            challenge.
+        image_url:
+          type: string
+          readOnly: true
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/UseCaseTag'
+          readOnly: true
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order on the frontend.
+        is_active:
+          type: boolean
+          description: Controls visibility on the landing page.
+      required:
+      - description
+      - id
+      - image_url
+      - tags
+      - title
+    UseCaseTag:
+      type: object
+      description: Serializer for the UseCaseTag model.
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          description: Tag name (e.g., 'Permit Management', 'Code Enforcement').
+          maxLength: 100
+        slug:
+          type: string
+          description: URL-friendly version of the tag name.
+          maxLength: 120
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+          description: Optional short description for this tag.
+        order:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: 0
+          format: int64
+          description: Display order for the frontend.
+        is_active:
+          type: boolean
+          description: Controls whether the tag is visible or selectable.
+      required:
+      - id
+      - name
+      - slug
+  securitySchemes:
+    jwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
